@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTraffic="true">
+        <domain includeSubdomains="true">104.236.83.107</domain>
+    </domain-config>
+</network-security-config>
