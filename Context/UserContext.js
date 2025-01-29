@@ -19,7 +19,7 @@ export const UserProvider = ({ children }) => {
     newComments: true,
   });
 
-  const BASE_URL='http://104.236.83.107:5000';
+  const BASE_URL = 'http://104.236.83.107:5000';
 
   // New Anime States
   const [animes, setAnimes] = useState([]);

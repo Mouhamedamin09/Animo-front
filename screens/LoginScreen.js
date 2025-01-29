@@ -35,13 +35,32 @@ export default function LoginScreen({ navigation }) {
       return;
     }
 
-    setIsLoggingIn(true); // Start loader
+    setIsLoggingIn(true);
 
     try {
+      console.log('Build Type:', __DEV__ ? 'Development' : 'Production');
+      console.log('Attempting to connect to:', BASE_URL);
+      
+      // Test connection first
+      try {
+        const testResponse = await axios.get(`${BASE_URL}/health`);
+        console.log('Server health check:', testResponse.status);
+      } catch (healthError) {
+        console.log('Health check failed:', healthError.message);
+      }
+
       const response = await axios.post(`${BASE_URL}/login`, {
         email: email,
         password: password,
+      }, {
+        timeout: 15000, // Increased timeout
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        }
       });
+
+      console.log('Response received:', response.status);
 
       if (response.status === 200) {
         Alert.alert('Success', 'Login successful!');
@@ -67,10 +86,26 @@ export default function LoginScreen({ navigation }) {
         Alert.alert('Error', response.data.message || 'Login failed');
       }
     } catch (error) {
-      console.error('Login Error:', error.response?.data || error.message);
-      Alert.alert('Error', error.response?.data?.error || 'Failed to login');
+      console.log('Full error:', error);
+      console.log('Error type:', typeof error);
+      console.log('Is Axios Error:', axios.isAxiosError(error));
+      console.log('Error message:', error.message);
+      console.log('Error response:', error.response);
+      console.log('Error request:', error.request);
+      console.log('Error config:', error.config);
+      
+      let errorMessage = 'Failed to login. ';
+      if (error.isAxiosError && !error.response) {
+        errorMessage += `Network error - Cannot connect to ${BASE_URL}`;
+      } else if (error.response?.data?.error) {
+        errorMessage += error.response.data.error;
+      } else {
+        errorMessage += `Error: ${error.message}`;
+      }
+      
+      Alert.alert('Error', errorMessage);
     } finally {
-      setIsLoggingIn(false); // Stop loader
+      setIsLoggingIn(false);
     }
   };
 
@@ -153,7 +188,7 @@ export default function LoginScreen({ navigation }) {
           accessibilityLabel="Register Link"
         >
           <Text style={styles.registerText}>
-            Don’t have an account? <Text style={styles.highlight}>Sign Up</Text>
+            Don't have an account? <Text style={styles.highlight}>Sign Up</Text>
           </Text>
         </TouchableOpacity>
       </View>
