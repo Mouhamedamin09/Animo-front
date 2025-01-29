@@ -1,0 +1,8 @@
+the things i need to add:
+
+LoggedHome add user perefernce by putting animes with his genre.
+add user verification with email and forget password
+coplete the screens
+add a Loading in Anime watch section
+add 360 480 720 quality
+make a history for every page u get in no not reload it again

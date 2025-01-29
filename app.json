@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "Animo",
+    "slug": "AnimoApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/Animo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/1.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#262626"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/Animo.png",
+        "backgroundColor": "#ffffff"
+      },
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-8177178441242549~4090421303"
+      },
+      "package": "com.medamine12.AnimoApp",
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE"
+      ],
+      "usesCleartextTraffic": true
+    },
+    "web": {
+      "favicon": "./assets/Animo.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4dc53200-0b00-4262-a77c-34782fa5ac33"
+      }
+    },
+    "owner": "medamine12",
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}

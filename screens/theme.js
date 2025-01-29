@@ -1,0 +1,28 @@
+export const themes = {
+    light: {
+      background: '#FFFFFF',
+      text: '#000000',
+      sectionBackground: '#F2F2F2',
+      toggleTrackFalse: '#767577',
+      toggleTrackTrue: '#5abf75',
+      toggleThumb: '#f4f3f4',
+      iconColor: '#5abf75',
+      buttonBackground: '#5abf75',
+      buttonText: '#262626',
+      logoutBackground: '#ff4d4d',
+      logoutText: '#FFFFFF',
+    },
+    dark: {
+      background: '#262626',
+      text: '#FFFFFF',
+      sectionBackground: '#333333',
+      toggleTrackFalse: '#767577',
+      toggleTrackTrue: '#5abf75',
+      toggleThumb: '#f4f3f4',
+      iconColor: '#5abf75',
+      buttonBackground: '#5abf75',
+      buttonText: '#262626',
+      logoutBackground: '#ff4d4d',
+      logoutText: '#FFFFFF',
+    },
+  };
